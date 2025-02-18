@@ -1,11 +1,14 @@
 const { defineConfig } = require("cypress");
-const cucumber = require("cypress-cucumber-preprocessor").default; //a ajouter
+const cucumber = require("cypress-cucumber-preprocessor").default; 
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "**/*.feature", // a ajouter
+    chromeWebSecurity: false,
+    specPattern: "**/*.feature", 
     setupNodeEvents(on, config) { 
-      on("file:preprocessor", cucumber()); // ajouter
+      on("file:preprocessor", cucumber()); 
+      require('@cypress/grep/src/plugin')(config);
+      return config;
     },
   },
 });
