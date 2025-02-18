@@ -32,6 +32,25 @@ Then('je retrouve les memes produits dans le panier', () => {
     cy.wrap(cartPage.getAddedProducts()).should('deep.equal', Cypress.env("produitsAjoutes"));
 })
 
+When('je clique sur le bouton remove pour {string} produit', (s) => {
+    let produitsAjoutes = Cypress.env("produitsAjoutes");
+    productPage.elements.productTitle().each((produit, id)=>{
+        if(id < s){
+            cy.wrap(produit).invoke("text").then((produitTexte) => {
+                productPage.retirerProduitDuPanier(produitTexte.toLowerCase().replace(/\s+/g, "-"));
+                
+                let index = produitsAjoutes.indexOf(produitTexte); 
+
+                if (index !== -1) {
+                    produitsAjoutes.splice(index, 1); 
+                }
+            })  
+        }         
+    });
+    
+    Cypress.env("produitsAjoutes", produitsAjoutes);
+})
+
 
 
 
