@@ -41,6 +41,11 @@ class ProductsPage {
     this.elements.productTitle();
   }
 
+
+  getProductDescription(productName){
+    return this.elements.productTitle().contains(productName)
+    .closest('.inventory_item_label').find('.inventory_item_desc')
+  }
 }
 export default new ProductsPage();
 
