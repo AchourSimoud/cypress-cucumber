@@ -45,6 +45,7 @@ class ProductsPage {
   getProductDescription(productName){
     return this.elements.productTitle().contains(productName)
     .closest('.inventory_item_label').find('.inventory_item_desc')
+    .invoke("text")
   }
 }
 export default new ProductsPage();
