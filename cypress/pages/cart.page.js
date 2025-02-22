@@ -6,7 +6,8 @@ class cartPage {
       continueButton: () => cy.get('#continue-shopping'),
       removeButton: () => cy.get('.item_pricebar .btn_secondary'),
       addedProducts: () => cy.get(".inventory_item_name"),
-      productsDescriptions: () => cy.get(".inventory_item_desc")
+      productsDescriptions: () => cy.get(".inventory_item_desc"),
+      productsPrice: () => cy.get(".inventory_item_price")
 
     }
   clickContinueButton(){
