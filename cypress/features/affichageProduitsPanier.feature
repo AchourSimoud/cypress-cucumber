@@ -12,6 +12,9 @@ Feature: Affichage des produits dans le panier
   Scenario: verifier que les produits ajoutés contienent un bouton Remove
     Then le produit contient un bouton Remove
 
+  Scenario: verifier que les produits ajoutés contienent des prix
+      Then le produit contient un prix
+
 
 
     

@@ -53,6 +53,7 @@ class ProductsPage {
     .closest('.inventory_item_description').find('.inventory_item_price')
     .invoke("text")
   }
+  
 }
 export default new ProductsPage();
 

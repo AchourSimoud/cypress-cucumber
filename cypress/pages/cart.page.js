@@ -38,8 +38,6 @@ class cartPage {
         })
     return produitsAjoutes;
   }
-
-  
 }
 export default new cartPage(); 
 
