@@ -53,6 +53,12 @@ class ProductsPage {
     .closest('.inventory_item_description').find('.inventory_item_price')
     .invoke("text")
   }
+
+  getProductImage(productName){
+    return this.elements.productTitle().contains(productName)
+    .closest('.inventory_item').find('.inventory_item_img img').invoke('attr', 'src'); 
+
+  }
   
 }
 export default new ProductsPage();
