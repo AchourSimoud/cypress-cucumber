@@ -1,8 +1,13 @@
+
 class ProductsPage {
     elements = {
       pageTitle: () => cy.get('[data-test="title"]'),
       productTitle: () => cy.get(".inventory_item_name"),
       productPrice: () => cy.get(".inventory_item_price"),
+      productImg: () => cy.get(".inventory_item_img"),
+      productDesc: () => cy.get(".inventory_item_desc"),
+
+  
       addToCartButton: () => cy.get(".btn_inventory"),
       cartNumbre: () => cy.get(".shopping_cart_badge"),
       cartIcon: () => cy.get(".shopping_cart_link"),
@@ -62,6 +67,16 @@ class ProductsPage {
 
   }
   
+
+  verifiercontenudesproduit ( ){
+  
+    this.elements.productTitle().should("be.visible");
+    this.elements.productPrice().should("be.visible");
+    this.elements.productDesc().should("be.visible");
+    this.elements.productImg().should("be.visible");
+  }
+
 }
 export default new ProductsPage();
+
 
