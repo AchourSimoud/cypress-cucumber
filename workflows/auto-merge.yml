@@ -29,3 +29,18 @@ jobs:
           gh pr merge ${{ github.event.pull_request.number }} --merge
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Envoyer une notification sur Discord
+        if: env.approved == 'true'
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{
+                 "username": "GitHub Bot",
+                 "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                 "embeds": [{
+                   "title": "🚀 Merge effectué vers `dev` !",
+                   "description": "**PR #${{ github.event.pull_request.number }}** - [${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }}) a été fusionnée.",
+                   "color": 65280
+                 }]
+               }' ${{ secrets.DISCORD_WEBHOOK_URL }}
