@@ -10,6 +10,7 @@ Given('L utilisateur est sur la page d accueil', () => {
   loginPage.saisirUsername("standard_user");
   loginPage.saisirPassword("secret_sauce");
   loginPage.cliqueSurLoginButton();
+  
 
 })
 
