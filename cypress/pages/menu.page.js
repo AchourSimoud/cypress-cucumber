@@ -4,19 +4,27 @@ class MenuPage{
         allItem : () => cy.get("#inventory_sidebar_link"),  
         logOut : () => cy.get("#logout_sidebar_link"),
         resetAppState : () => cy.get("#reset_sidebar_link"),
+        aboutBouton: () => cy.get("#about_sidebar_link")
     };
 
-    sasirSurMenuButton() {
+    clickSurMenuButton() {
         this.elements.menuBoutton().click();
     }
-    saisirAllItem(){
+
+    clickAllItem(){
         this.elements.allItem().click();
     }
-    saisirLogOut(){
+
+    clickLogOut(){
         this.elements.logOut().click();
     }
-    saisirResstAppState(){
+
+    clickResstAppState(){
         this.elements.resetAppState().click();
+    }
+
+    clickAboutBouton(){
+        this.elements.aboutBouton().click();
     }
 
 }

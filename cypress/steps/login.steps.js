@@ -28,9 +28,3 @@ Then('le menu du site doit être visible', () => {
 Then('un message d erreur doit etre affiche', () => {
  loginPage.elements.errorMessage().should("be.visible");
 })
-
-
-
-
-
-
